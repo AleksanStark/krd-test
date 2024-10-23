@@ -1,0 +1,12 @@
+.header {
+  width: 100%;
+  background-color: aliceblue;
+}
+
+.header_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  list-style: none;
+}
