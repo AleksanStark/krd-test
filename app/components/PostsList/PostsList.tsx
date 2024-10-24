@@ -10,13 +10,14 @@ const PostsList = async ({ category }: Api) => {
   } = await res.json();
   return (
     <ul className={css.list}>
-      {posts.map((item: Post) => (
-        <li className={css.list_item} key={item._id}>
-          <h2>{item.name}</h2>
-          <h3>{item.subject}</h3>
-          <p>{item.text}</p>
-        </li>
-      ))}
+      {posts &&
+        posts.map((item: Post) => (
+          <li className={css.list_item} key={item._id}>
+            <h2>{item.name}</h2>
+            <h3>{item.subject}</h3>
+            <p>{item.text}</p>
+          </li>
+        ))}
     </ul>
   );
 };
