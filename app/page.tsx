@@ -2,20 +2,18 @@ import Link from "next/link";
 import Header from "./components/Header/Header";
 import PostsList from "./components/PostsList/PostsList";
 
-const Home = () => {
+export default function Home() {
   return (
     <div>
       <Header>
         <li>
-          <Link href={"/form"}>Создать пост</Link>
-        </li>
-        <li>
           <Link href={"/"}>Посты</Link>
         </li>
+        <li>
+          <Link href={"/form"}>Создать Пост</Link>
+        </li>
       </Header>
-      <PostsList category="orthopedics" />
+      <PostsList category="ортопедия" />
     </div>
   );
-};
-
-export default Home;
+}

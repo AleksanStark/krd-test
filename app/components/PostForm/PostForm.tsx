@@ -1,55 +1,54 @@
-import { Button, FormLabel, Input, Textarea } from "@chakra-ui/react";
-import { useFormik } from "formik";
+"use client";
+import { FormEvent } from "react";
+import BackButton from "../BackButton/BackButton";
+import css from "./PostForm.module.css";
 
 const PostForm = () => {
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      subject: "",
-      text: "",
-      category: "",
-    },
-    onSubmit: async (values) => {
-      console.log(JSON.stringify(values));
-      const res = await fetch(`https://krd-test-back.onrender.com/post`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
-      const post = await res.json();
-      return post;
-    },
-  });
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const { name, subject, text, category } =
+      form.elements as HTMLFormControlsCollection & {
+        name: HTMLInputElement;
+        subject: HTMLInputElement;
+        text: HTMLTextAreaElement;
+        category: HTMLSelectElement;
+      };
+    const res = await fetch(`https://krd-test-back.onrender.com/post`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name.value,
+        subject: subject.value,
+        text: text.value,
+        category: category.value,
+      }),
+    });
+    const post = await res.json();
+    form.reset();
+    return post;
+  };
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <FormLabel htmlFor="name">Имя</FormLabel>
-      <Input
-        id="name"
-        name="name"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.name}
-      />
-      <FormLabel htmlFor="subject">Тема</FormLabel>
-      <Input
-        id="subject"
-        name="subject"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.subject}
-      />
-      <FormLabel htmlFor="text">Текст</FormLabel>
-      <Textarea
-        id="text"
-        name="text"
-        onChange={formik.handleChange}
-        value={formik.values.text}
-      />
-      <Button type="submit">Submit</Button>
-    </form>
+    <div>
+      <BackButton />
+      <form className={css.form} onSubmit={handleSubmit}>
+        <label htmlFor="name">Имя</label>
+        <input type="text" id="name" name="name" />
+        <label htmlFor="subject">Тема</label>
+        <input type="text" id="subject" name="subject" />
+        <label htmlFor="category">Категория</label>
+        <select name="category" id="category">
+          <option>ортопедия</option>
+        </select>
+        <label htmlFor="text">Текст</label>
+        <textarea id="text" name="text"></textarea>
+        <button type="submit">Создать пост</button>
+      </form>
+    </div>
   );
 };
+
 export default PostForm;

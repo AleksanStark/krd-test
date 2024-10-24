@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react";
+"use client";
 import { useRouter } from "next/navigation";
 
 const BackButton = () => {
@@ -10,6 +10,6 @@ const BackButton = () => {
       router.push("/");
     }
   };
-  return <Button onClick={handleBack}>Назад</Button>;
+  return <button onClick={handleBack}>Назад</button>;
 };
 export default BackButton;

@@ -1,13 +1,6 @@
-"use client";
-import PostForm from "@/app/components/PostForm/PostForm";
-import BackButton from "../components/BackButton/BackButton";
+import PostForm from "../components/PostForm/PostForm";
 
-const OrthopedicsForm = () => {
-  return (
-    <div>
-      <BackButton />
-      <PostForm />
-    </div>
-  );
+const Form = () => {
+  return <PostForm />;
 };
-export default OrthopedicsForm;
+export default Form;
