@@ -1,14 +1,13 @@
 "use client";
 import Link from "next/link";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import clsx from "clsx";
 import "swiper/swiper-bundle.css";
 import css from "./page.module.css";
-import Header from "./components/Header/Header";
+import Image from "next/image";
 
 export default function Home() {
-  const swiper = useSwiper();
   return (
     <>
       <header>
@@ -112,7 +111,7 @@ export default function Home() {
           <section className={css.about}>
             <h2 className={css.about_title}>Бесплатные консультации</h2>
             <div className={css.about_content_top}>
-              <img
+              <Image
                 className={css.content_top_img}
                 src="../about-image.jpg"
                 alt=""
