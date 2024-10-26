@@ -41,7 +41,9 @@ const PostForm = () => {
         <input type="text" id="subject" name="subject" />
         <label htmlFor="category">Категория</label>
         <select name="category" id="category">
-          <option>ортопедия</option>
+          <option value={"ортопедия"}>ортопедия</option>
+          <option value={"неврология"}>неврология</option>
+          <option value={"дерматология"}>дерматология</option>
         </select>
         <label htmlFor="text">Текст</label>
         <textarea id="text" name="text"></textarea>

@@ -68,10 +68,7 @@
   padding: 0 20px;
   border: none;
   border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -165,4 +162,62 @@ a.secondary {
   .logo {
     filter: invert();
   }
+}
+
+.mySwiper {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 26px;
+}
+
+.mySwiperSlide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.mySwiper_link {
+  font-size: 30px;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.mySwiper_link:hover {
+  text-decoration: none;
+}
+.wrapper {
+  width: 1170px;
+  margin: 0 auto;
+  padding: 0, 15px;
+}
+
+.header_title {
+  margin-bottom: 30px;
+}
+
+.header_subtitle {
+  font-size: 15px;
+}
+
+.about_title {
+  font-size: 2.5em;
+  font-family: "Arvo", serif;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 400;
+}
+
+.about_content_top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 57px;
+}
+
+.content_top_img {
+  width: 218.533px;
+  border-radius: 50%;
+  border: 2px solid #ef664d;
 }
