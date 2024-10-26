@@ -113,7 +113,9 @@ export default function Home() {
             <div className={css.about_content_top}>
               <Image
                 className={css.content_top_img}
-                src="../about-image.jpg"
+                width={219}
+                height={224}
+                src="/about-image.jpg"
                 alt=""
               />
               <div className={css.content_top_text}>
